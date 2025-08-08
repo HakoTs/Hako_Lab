@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Réalisations - Mon Site</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #111;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+      padding: 8px 12px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #444;
+      border-radius: 5px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .random-button {
+      display: inline-block;
+      width: auto;
+      margin: 20px 0;
+      padding: 8px 16px;
+      background-color: #1a237e;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .random-button:hover {
+      background-color: #303f9f;
+    }
+
+    .realisations-list {
+      margin-top: 40px;
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
+    }
+
+    .realisations-list h3 {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .realisations-list ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start; /* Alignement à gauche */
+    }
+
+    .realisations-list li a {
+      display: block;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      width: auto; /* Largeur automatique */
+      text-align: left; /* Texte aligné à gauche */
+    }
+
+    .realisations-list li a:hover {
+      background-color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eee;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mes Réalisations</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="realisations.html">Réalisations</a>
+    <a href="projets.html">Projets</a>
+    <a href="perso.html">Perso</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <h2>Quelques exemples de mes réalisations</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies vehicula sapien, nec commodo magna feugiat sit amet. Donec facilisis justo vel eros porttitor, a dapibus erat fermentum.</p>
+
+    <button class="random-button" onclick="redirectToRandomRealisation()">Voir une réalisation aléatoire</button>
+
+    <p>Morbi imperdiet enim vel eros accumsan, vel elementum justo lacinia. Integer at felis ut nulla ultrices bibendum. Nunc viverra felis a ligula fermentum, in sagittis mi rutrum.</p>
+
+    <p>Sed sollicitudin risus nec purus ultricies tristique. Nam vulputate facilisis nulla, sed lacinia justo luctus sed. Suspendisse ac sapien nec risus tincidunt congue. Proin fermentum gravida diam.</p>
+
+    <div class="realisations-list">
+      <h3>Liste de mes réalisations</h3>
+      <ul>
+        <li><a href="realisation1.html">Réalisation 1 : Ce site web.</a></li>
+        <li><a href="realisation2.html">Réalisation 2</a></li>
+        <li><a href="realisation3.html">Réalisation 3</a></li>
+        <li><a href="realisation4.html">Réalisation 4</a></li>
+        <li><a href="realisation5.html">Réalisation 5</a></li>
+        <li><a href="realisation6.html">Réalisation 6</a></li>
+        <li><a href="realisation7.html">Réalisation 7</a></li>
+        <li><a href="realisation8.html">Réalisation 8</a></li>
+        <li><a href="realisation9.html">Réalisation 9</a></li>
+        <li><a href="realisation10.html">Réalisation 10</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Mon Site. Tous droits réservés… mais en vrai, faites ce que vous voulez, je ne suis pas procédurier.
+  </footer>
+
+  <script>
+    function redirectToRandomRealisation() {
+      const realisations = [
+        "realisation1.html",
+        "realisation2.html",
+        "realisation3.html",
+        "realisation4.html",
+        "realisation5.html",
+        "realisation6.html",
+        "realisation7.html",
+        "realisation8.html",
+        "realisation9.html",
+        "realisation10.html"
+      ];
+      
+      const randomIndex = Math.floor(Math.random() * realisations.length);
+      window.location.href = realisations[randomIndex];
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Réalisation [N°] - Mon Site</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #111;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+      padding: 8px 12px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #444;
+      border-radius: 5px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #1a237e;
+      margin: 30px 0 15px;
+      border-bottom: 2px solid #1a237e;
+      padding-bottom: 5px;
+    }
+
+    .realisation-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #1a237e;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #303f9f;
+    }
+
+    .realisation-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .realisation-image {
+      max-width: 100%;
+      height: auto;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .tech-tag {
+      background-color: #1a237e;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eee;
+      margin-top: 40px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .realisation-header {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mes Réalisations</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="realisations.html">Réalisations</a>
+    <a href="projets.html">Projets</a>
+    <a href="perso.html">Perso</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <div class="realisation-header">
+      <a href="realisations.html" class="back-button">← Retour aux réalisations</a>
+      <div class="tech-list">
+        <!-- Modifier les tags techno ici -->
+        <span class="tech-tag">HTML</span>
+        <span class="tech-tag">CSS</span>
+        <span class="tech-tag">JavaScript</span>
+      </div>
+    </div>
+
+    <div class="realisation-content">
+      <!-- Modifier l'image ici -->
+      <img src="lien-vers-image.jpg" alt="Capture de la réalisation" class="realisation-image">
+
+      <h2>Description du projet</h2>
+      <p>
+        <!-- Modifier la description ici -->
+        [Insérez ici une description détaillée du projet. Parlez des objectifs, 
+        du contexte, des défis rencontrés et des solutions apportées.]
+      </p>
+
+      <h2>Fonctionnalités clés</h2>
+      <ul>
+        <!-- Modifier les fonctionnalités ici -->
+        <li>Fonctionnalité 1</li>
+        <li>Fonctionnalité 2</li>
+        <li>Fonctionnalité 3</li>
+      </ul>
+
+      <h2>Détails techniques</h2>
+      <p>
+        <!-- Modifier les détails techniques ici -->
+        [Décrivez ici les aspects techniques intéressants, les technologies utilisées,
+        les choix d'architecture, etc.]
+      </p>
+
+      <!-- Ajouter d'autres sections au besoin -->
+      <h2>Résultats</h2>
+      <p>
+        [Décrivez les résultats obtenus, les retours clients, les statistiques
+        d'utilisation si disponibles, etc.]
+      </p>
+
+      <!-- Lien vers le projet si applicable -->
+      <a href="#" class="back-button" style="display: inline-block; margin-top: 20px;">
+        Voir le projet en ligne →
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Mon Site. Tous droits réservés.
+  </footer>
+
+</body>
+</html>
