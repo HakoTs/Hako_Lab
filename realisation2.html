@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Réalisation N° 2 - Distributeur de Cacahuètes Arduino</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .realisation-block {
+      margin: 40px 0;
+    }
+
+    .image-container {
+      float: right;
+      margin: 0 0 20px 20px;
+      max-width: 400px;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .image-full {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .image-full img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .gif-container {
+      text-align: center;
+      margin: 30px 0;
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .gif-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    .gif-container.small {
+      margin: 20px auto;
+      max-width: 400px;
+      padding: 15px;
+    }
+
+    .gif-container.small img {
+      max-width: 350px;
+      width: 100%;
+    }
+
+    /* Inline small GIF next to text */
+    .gif-inline {
+      float: left;
+      margin: 0 20px 20px 0;
+      background: transparent;
+      padding: 0;
+      /* no frame */
+    }
+
+    .gif-inline.small {
+      max-width: 260px;
+    }
+
+    .gif-inline img {
+      max-width: 100%;
+      height: auto;
+      /* remove rounded corners and shadow to match schema style */
+      border-radius: 0;
+      box-shadow: none;
+      display: block;
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .gallery-item {
+      text-align: center;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
+
+    .progress-section {
+      background-color: #f0f4ff;
+      padding: 25px;
+      border-radius: 8px;
+      margin: 30px 0;
+      border-left: 4px solid #1a237e;
+    }
+
+    .progress-section h3 {
+      color: #1a237e;
+      margin-bottom: 20px;
+    }
+
+    .image-caption {
+      font-style: italic;
+      color: #666;
+      text-align: center;
+      margin-top: 8px;
+      font-size: 0.9rem;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #111;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+      padding: 8px 12px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #444;
+      border-radius: 5px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #1a237e;
+      margin: 30px 0 15px;
+      border-bottom: 2px solid #1a237e;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      color: #1a237e;
+      margin: 25px 0 10px;
+      font-size: 1.1rem;
+    }
+
+    .realisation-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #1a237e;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #303f9f;
+    }
+
+    .realisation-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .tech-tag {
+      background-color: #1a237e;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    .key-points {
+      background-color: #f8f9fa;
+      border-left: 4px solid #1a237e;
+      padding: 15px 20px;
+      margin: 20px 0;
+    }
+
+    .key-points h4 {
+      color: #1a237e;
+      margin-bottom: 10px;
+    }
+
+    .key-points ul {
+      margin-left: 20px;
+    }
+
+    .key-points li {
+      margin-bottom: 5px;
+    }
+
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eee;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .realisation-header {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .image-container {
+        float: none;
+        margin: 20px auto;
+        display: block;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mes Réalisations</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="realisations.html">Réalisations</a>
+    <a href="projets.html">Projets</a>
+    <a href="perso.html">Perso</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <div class="realisation-header">
+      <a href="realisations.html" class="back-button">← Retour aux réalisations</a>
+      <div class="tech-list">
+        <span class="tech-tag">Pédagogie</span>
+        <span class="tech-tag">Arduino</span>
+        <span class="tech-tag">C++</span>
+        <span class="tech-tag">Électronique</span>
+        <span class="tech-tag">Mécanique</span>
+      </div>
+    </div>
+
+    <div class="realisation-content">
+      <h2>Distributeur de Cacahuètes Automatique</h2>
+      <p>
+        Projet réalisé avec mon petit frère : un distributeur de cacahuètes entièrement automatique basé sur Arduino Mega. 
+        Ce système détecte l'insertion d'une pièce grâce à un capteur optique et distribue automatiquement une cacahuète 
+        via un mécanisme à double servomoteur.
+      </p>
+
+      <div class="progress-section">
+        <h3>Évolution du projet</h3>
+        <div class="image-gallery">
+          <div class="gallery-item">
+            <img src="images/cacauetes_begining.PNG" alt="Début du projet">
+            <div class="image-caption">Phase initiale : premiers tests et prototypage</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/cacauetes_half_done.PNG" alt="Projet à mi-parcours">
+            <div class="image-caption">Développement : assemblage des composants</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Principe de Fonctionnement</h2>
+      
+      <h3>Détection de la Pièce</h3>
+      <div class="realisation-block clearfix">
+        <div class="image-container">
+          <img src="images/cacauetes_schema eclairage_photoresistance_explication.png" alt="Système de détection lumineuse">
+          <div class="image-caption">Schéma explicatif : LED + photorésistance pour la détection</div>
+        </div>
+        <p>
+          Le cœur du système de détection repose sur un principe simple mais efficace : 
+          une LED émet un faisceau lumineux constant vers une photorésistance. 
+        </p>
+        <p>
+          Quand une pièce passe entre les deux, elle coupe le faisceau, ce qui fait chuter 
+          la luminosité reçue par la photorésistance. L'Arduino détecte cette variation 
+          et déclenche le processus de distribution.
+        </p>
+        <p>
+          Le rail guide parfaitement la pièce pour qu'elle coupe bien le faisceau lumineux.
+        </p>
+      </div>
+
+      <h3>Mécanisme de Distribution</h3>
+      <div class="realisation-block clearfix">
+        <div class="gif-inline small">
+          <img src="images/cacauetes_explications_distribution_dans_tube.gif" alt="Animation du mécanisme de distribution" autoplay loop>
+        </div>
+        <p style="text-align: center;">
+          Une fois la pièce détectée, le vrai challenge commence : distribuer exactement une cacahuète, 
+          pas plus, pas moins. Pour cela, j'ai conçu un système à double porte :
+          <br>
+          <br>
+          <br>
+        </p>
+        <ol style="margin-left: 20px;">
+          <li>Servomoteur 1 s'ouvre → les cacahuètes descendent</li>
+          <li>Une cacahuète tombe dans la chambre intermédiaire</li>
+          <li>Servomoteur 1 se referme (bloque les autres cacahuètes)</li>
+          <li>Servomoteur 2 s'ouvre → la cacahuète tombe</li>
+          <li>Servomoteur 2 se referme → retour à l'état initial</li>
+        </ol>
+        <p style="text-align: center;">
+          <br>
+          Cette séquence en deux temps évite que plusieurs cacahuètes tombent d'un coup. En théorie... 
+          En pratique, il arrive parfois que deux cacahuètes se faufilent, mais ça fait partie du charme artisanal du projet !
+        </p>
+      </div>
+
+      <h2>Composants Utilisés</h2>
+      <div class="key-points">
+        <h4>Liste du matériel</h4>
+        <ul>
+          <li><strong>Arduino Mega</strong> : cerveau du système, gère tous les capteurs et actionneurs</li>
+          <li><strong>2 Servomoteurs</strong> : contrôlent l'ouverture/fermeture des portes de distribution</li>
+          <li><strong>1 LED</strong> : source lumineuse pour la détection</li>
+          <li><strong>1 Photorésistance</strong> : capteur de lumière pour détecter l'obstruction</li>
+          <li><strong>Afficheur LCD 2 lignes</strong> : retour visuel sur l'état du système</li>
+          <li><strong>Structure mécanique</strong> : tube, rails, supports (bricolage maison !)</li>
+        </ul>
+      </div>
+
+      <h2>Défis et Solutions</h2>
+      <div class="key-points">
+        <h4>Points clés du développement</h4>
+        <ul>
+          <li><strong>Calibrage de la photorésistance</strong> : trouver le bon seuil de détection selon l'éclairage ambiant</li>
+          <li><strong>Timing des servomoteurs</strong> : synchroniser parfaitement l'ouverture/fermeture pour éviter les bourrages</li>
+          <li><strong>Mécanique artisanale</strong> : ajuster les dimensions du rail et du tube pour un fonctionnement fluide</li>
+          <li><strong>Gestion des cas d'erreur</strong> : que faire si une cacahuète se coince ?</li>
+          <li><strong>Interface utilisateur</strong> : affichage clair sur l'écran LCD ("Insérez pièce", "Distribution...", etc.)</li>
+        </ul>
+      </div>
+
+      <h2>Résultat Final</h2>
+      <div class="gif-container">
+        <img src="images/cacauetes_demonstration.gif" alt="Démonstration du distributeur en fonctionnement" autoplay loop>
+        <div class="image-caption">Le système en action : de la pièce à la cacahuète !</div>
+      </div>
+      
+      <p>
+        Le distributeur fonctionne comme prévu ! On glisse une pièce, le système la détecte, et hop, une cacahuète tombe. Parfois deux, mais c’est un bonus inattendu. 😉<br> <br> code était assez facile ; le vrai objectif était surtout pédagogique et ludique. J’ai initié mon petit frère à la programmation en lui montrant que le code, ce n’est pas sorcier : comment un simple capteur détecte une pièce, comment un moteur sait quand tourner, et comment le tout travaille ensemble. On a parlé de logique, de signaux, et de la magie (en réalité très concrète) qui fait passer une idée à quelque chose de tangible. <br> <br> Résultat : il a maintenant son propre distributeur de cacahuètes… et il sait comment il marche de l’intérieur.
+      </p>
+      <p>
+        Collaboration avec mon petit frère oblige, on a aussi appris à se répartir les tâches : lui sur la partie mécanique et bricolage, 
+        moi sur la programmation et l'électronique. Un vrai travail d'équipe !
+      </p>
+
+      <h2>Améliorations Possibles</h2>
+      <p>
+        Quelques idées pour une version 2.0 :
+      </p>
+      <ul style="margin-left: 20px;">
+        <li>Ajouter un capteur de niveau pour savoir quand le tube est vide</li>
+        <li>Intégrer un système de différanciation de pieces</li>
+        <li>Améliorer la mécanique pour garantir une seule cacahuète à chaque fois.</li>
+        <li>Ajouter une connexion WiFi pour un drop de cacahuète a distance.</li>
+      </ul>
+      
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Mon Site. Tous droits réservés… mais en vrai, faites ce que vous voulez, je ne suis pas procédurier.
+  </footer>
+
+</body>

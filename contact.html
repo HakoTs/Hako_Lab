@@ -65,11 +65,63 @@
       color: #555;
     }
 
+    .contact-info {
+      background-color: white;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      margin-top: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background-color: #f0f0f0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 18px;
+    }
+
+    .thank-you {
+      text-align: center;
+      margin: 40px 0;
+      padding: 25px;
+      background-color: #f8f8f8;
+      border-radius: 8px;
+      font-style: italic;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
       background-color: #eee;
       margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        margin: 5px;
+        font-size: 14px;
+      }
+      
+      .contact-item {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .contact-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
     }
   </style>
 </head>
@@ -89,12 +141,28 @@
 
   <main>
     <h2>Vous souhaitez me contacter ?</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt urna nisi, a tristique libero faucibus at. Nulla egestas mauris neque, vel laoreet justo fermentum vel.</p>
+    <p>Toujours heureux de collaborer ou d’échanger sur vos idées. Contactez-moi comme vous le souhaitez.</p>
 
-    <p>Phasellus tincidunt nunc in turpis suscipit, eget sodales leo tincidunt. Fusce feugiat convallis ligula ac maximus. Sed tristique euismod sapien, ac tempor eros facilisis et.</p>
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">📧</div>
+        <div><strong>Email :</strong> <a href="mailto:hakim.tsouria@gmail.com">hakim.tsouria@gmail.com</a></div>
+      </div>
+      
+      <div class="contact-item">
+        <div class="contact-icon">📱</div>
+        <div><strong>Téléphone :</strong> <a href="tel:+33767685930">+337 67 68 59 30</a></div>
+      </div>
+      
+      <div class="contact-item">
+        <div class="contact-icon">🔗</div>
+        <div><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/hakim-tsouria" target="_blank">/in/hakim-tsouria</a></div>
+      </div>
+    </div>
 
-    <p>Pour toute demande, envoyez-moi un message à l'adresse suivante :</p>
-    <p><strong>Email :</strong> monadresse@email.com</p>
+    <div class="thank-you">
+      <p>Merci d’avoir parcouru mon site jusqu’ici et de vous intéresser à ce que je crée. Vos retours et vos questions sont les bienvenus !</p>
+    </div>
   </main>
 
   <footer>

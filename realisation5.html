@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Réalisation N° 3 - Application Boîte de Leitner Python</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .realisation-block {
+      margin: 40px 0;
+    }
+
+    .image-container {
+      float: right;
+      margin: 0 0 20px 20px;
+      max-width: 400px;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .image-full {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .image-full img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .gif-container {
+      text-align: center;
+      margin: 30px 0;
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .gif-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    .gif-container.small {
+      margin: 20px auto;
+      max-width: 400px;
+      padding: 15px;
+    }
+
+    .gif-container.small img {
+      max-width: 350px;
+      width: 100%;
+    }
+
+    /* Inline small GIF next to text */
+    .gif-inline {
+      float: left;
+      margin: 0 20px 20px 0;
+      background: transparent;
+      padding: 0;
+      /* no frame */
+    }
+
+    .gif-inline.small {
+      max-width: 260px;
+    }
+
+    .gif-inline img {
+      max-width: 100%;
+      height: auto;
+      /* remove rounded corners and shadow to match schema style */
+      border-radius: 0;
+      box-shadow: none;
+      display: block;
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .gallery-item {
+      text-align: center;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
+
+    .progress-section {
+      background-color: #f0f4ff;
+      padding: 25px;
+      border-radius: 8px;
+      margin: 30px 0;
+      border-left: 4px solid #1a237e;
+    }
+
+    .progress-section h3 {
+      color: #1a237e;
+      margin-bottom: 20px;
+    }
+
+    .image-caption {
+      font-style: italic;
+      color: #666;
+      text-align: center;
+      margin-top: 8px;
+      font-size: 0.9rem;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #111;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+      padding: 8px 12px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #444;
+      border-radius: 5px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #1a237e;
+      margin: 30px 0 15px;
+      border-bottom: 2px solid #1a237e;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      color: #1a237e;
+      margin: 25px 0 10px;
+      font-size: 1.1rem;
+    }
+
+    .realisation-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #1a237e;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #303f9f;
+    }
+
+    .realisation-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .tech-tag {
+      background-color: #1a237e;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    .key-points {
+      background-color: #f8f9fa;
+      border-left: 4px solid #1a237e;
+      padding: 15px 20px;
+      margin: 20px 0;
+    }
+
+    .key-points h4 {
+      color: #1a237e;
+      margin-bottom: 10px;
+    }
+
+    .key-points ul {
+      margin-left: 20px;
+    }
+
+    .key-points li {
+      margin-bottom: 5px;
+    }
+
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .link-highlight {
+      color: #1a237e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .link-highlight:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eee;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .realisation-header {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .image-container {
+        float: none;
+        margin: 20px auto;
+        display: block;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mes Réalisations</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="realisations.html">Réalisations</a>
+    <a href="projets.html">Projets</a>
+    <a href="perso.html">Perso</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <div class="realisation-header">
+      <a href="realisations.html" class="back-button">← Retour aux réalisations</a>
+      <div class="tech-list">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Algorithme</span>
+        <span class="tech-tag">Interface graphique</span>
+      </div>
+    </div>
+
+    <div class="realisation-content">
+      <h2>Application Boîte de Leitner en Python</h2>
+      <p>
+        Il faut que j'améliore ma manière d'apprendre !!! <br><br><br> Entre les cours, les révisions, le travail et tout le reste,
+         j'avais l'impression de ne pas être très efficace.
+      </p>
+
+      <p>
+        C'est dans ce contexte que je suis tombé sur une vidéo de <a href="https://www.youtube.com/watch?v=RVB3PBPxMWg&t=564s" class="link-highlight">ScienceEtonnante</a> qui parlait de la boîte de Leitner. 
+        Ça m'a complètement convaincu : Cette méthode optimisée d'apprentissage est basée sur des vrais principes scientifiques !
+      </p>
+
+      <h2>Bon... C'est quoi une boîte de Leitner? :</h2>
+      <div class="realisation-block clearfix">
+        <div class="image-container">
+          <img src="images/5-leitner_box_scema.jpg" alt="Schéma de la boîte de Leitner">
+          <div class="image-caption">Schéma d'une boite de Leitner.</div>
+        </div>
+        <p>
+          Sebastian Leitner, un journaliste scientifique allemand, a inventé ce système en 1972. 
+          Le principe est génial dans sa simplicité : on utilise plusieurs boîtes (ou compartiments) 
+          pour classer nos cartes de révision selon notre niveau de maîtrise.
+        </p>
+        <p>
+          Plus on maîtrise une carte, plus elle va dans une boîte "élevée", et moins on la révise souvent. 
+          Si on se trompe, elle redescend dans la première boîte pour être révisée plus fréquemment.
+        </p>
+        <br>
+    <br>
+        
+
+        
+      
+      
+          <div style="text-align: center;">
+
+<img src="images/5-vraie leitner box.png" alt="Schéma de la boîte de Leitner" width="300">
+    <div class="image-caption">Principe de base de la boîte de Leitner</div>
+    <br>
+    <br>
+        <p>
+          De ce qu'on sait aujourd'hui du fonctionnement du cerveau, c'est un des meilleurs moyens d'apprendre ! 
+          <br>
+          La répétition espacée exploite parfaitement notre courbe d'oubli d'Ebbinghaus.
+        </p>
+      </div>
+
+      <h2>Développement de l'Application</h2>
+      <div class="progress-section">
+        <h3>Architecture Python</h3>
+        <p>
+          J'ai développé l'application en Python avec Tkinter pour l'interface graphique. 
+          <br>
+          Python pour la simplicité du développement, Tkinter parce que c'est inclus 
+          de base et que ça fait le travail sans complications.
+        </p>
+      </div>
+
+      <div class="image-full">
+        <img src="images/5-app main interface.png" alt="Interface de l'application"width="400">
+        <div class="image-caption">Interface principale de l'application</div>
+      </div>
+
+      <h3>Fonctionnalités Principales</h3>
+      <div class="key-points">
+        <h4>Ce que fait l'app</h4>
+        <ul>
+          <li><strong>Gestion des cartes</strong> : création, modification, suppression de questions-réponses</li>
+          <li><strong>Système de boîtes</strong> : 15 niveaux de maîtrise avec intervalles de révision croissants</li>
+          <li><strong>Algorithme de révision</strong> : présentation automatique des cartes selon leur planning</li>
+          <li><strong>Statistiques</strong> : suivi des progrès et taux de réussite par boîte</li>
+          <li><strong>Sauvegarde</strong> : persistence des données entre les sessions</li>
+        </ul>
+      </div>
+
+      <h3>Démonstration de l'application</h3>
+      <div class="realisation-block clearfix">
+        <div class="gif-inline small">
+        </div>
+        <p>
+          Le plus gros challenge a été de gérer correctement les intervalles de temps. 
+          Comment savoir quelles cartes présenter à l'utilisateur à un moment donné ? 
+        </p>
+        <p>
+          J'ai implémenté un système de timestamps qui calcule automatiquement quand 
+          chaque carte doit être révisée selon sa boîte actuelle :
+          <br><br>
+        </p>
+        <ul style="margin-left: 20px;">
+          <li>Boîte 1 : maintenant</li>
+          <li>Boîte 2 : dans 1 minute</li>
+          <li>Boîte 3 : dans 2 minutes</li>
+          <li>Boîte 4 : dans 4 minutes</li>
+          <li>Boîte 5 : dans 8 minutes</li>
+          <li>Boîte 6 : dans 15 minutes</li>
+          <li>Boîte 7 : dans 30 minutes</li>
+          <li>Boîte 8 : dans 1 heure</li>
+          <li>Boîte 9 : dans 2 heures</li>
+          <li>Boîte 10 : dans 4 heures</li>
+          <li>Boîte 11 : dans 8 heures</li>
+          <li>Boîte 12 : dans 16 heures </li>
+          <li>Boîte 13 : dans 1 jour </li>
+          <li>Boîte 14 : dans 2 jours </li>
+          <li>Boîte 15 : aquis </li>
+        </ul>
+        
+        <div class="image-full">
+          <img src="images/5-menu questions.PNG" alt="Notes et résultats QCM">
+          <div class="image-caption">Exemple de menu de questions obtenus.</div>
+        </div>
+        
+        <p><strong>Voici un exemple de question à réviser :</strong></p>
+        
+        <div class="image-full">
+          <img src="images/5-exemple suestion.PNG" alt="Exemple de question">
+          <div class="image-caption">Interface de révision d'une question</div>
+        </div>
+        
+        <p>
+          <br>
+        </p>
+      </div>
+      <h2>Bilan et Perspectives</h2>
+      <p>
+        Ce projet m'a fait découvrir que programmer, c'est aussi résoudre ses propres problèmes. 
+        J'avais un besoin concret (mieux apprendre), j'ai trouvé une méthode, 
+        et j'ai créé l'outil pour l'appliquer!
+      </p>
+
+      <p>
+        Au-delà de l'aspect technique, ce projet m'a surtout permis de transformer ma façon d'étudier. 
+        Plus j'utilise l'app, moins j'ai de travail, parce que les connaissances bien maîtrisées 
+        remontent naturellement vers les boîtes supérieures.
+      </p>
+      <br>
+      <p>
+        La preuve concrète de l'efficacité de cette méthode ? Grâce à cette application, j'ai pu réviser 
+        mon dernier cours de l'année de manière optimale et j'ai obtenu une super note ! 
+        Le système de répétition espacée a vraiment fait ses preuves.
+      </p>
+
+      <div class="image-full">
+        <img src="images/5-notes qcm.PNG" alt="Mes résultats de notes">
+        <div class="image-caption">Résultats obtenus grâce à la méthode Leitner</div>
+      </div>
+
+      <div class="key-points">
+        <h4>Améliorations possibles</h4>
+        <ul>
+          <li>Synchronisation cloud pour utiliser l'app sur plusieurs appareils</li>
+          <li>Version mobile pour réviser dans les transports</li>
+        </ul>
+      </div>
+      
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Mon Site. Tous droits réservés… mais en vrai, faites ce que vous voulez, je ne suis pas procédurier.
+  </footer>
+
+</body>
+</html>

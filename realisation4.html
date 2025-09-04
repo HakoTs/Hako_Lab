@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projets Ingénierie 2024-2025 - Systèmes Experts et Gestion de Festival</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #111;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+      padding: 8px 12px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #444;
+      border-radius: 5px;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #1a237e;
+      margin: 30px 0 15px;
+      border-bottom: 2px solid #1a237e;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      color: #1a237e;
+      margin: 25px 0 10px;
+      font-size: 1.1rem;
+    }
+
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #1a237e;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #303f9f;
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .tech-tag {
+      background-color: #1a237e;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    .project-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    .key-points {
+      background-color: #f8f9fa;
+      border-left: 4px solid #1a237e;
+      padding: 15px 20px;
+      margin: 20px 0;
+    }
+
+    .key-points h4 {
+      color: #1a237e;
+      margin-bottom: 10px;
+    }
+
+    .key-points ul {
+      margin-left: 20px;
+    }
+
+    .key-points li {
+      margin-bottom: 5px;
+    }
+
+    .pdf-links {
+      margin: 20px 0;
+      padding: 15px;
+      background-color: #e8f4f8;
+      border-radius: 8px;
+    }
+
+    .pdf-links a {
+      display: block;
+      margin: 10px 0;
+      color: #1a237e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .pdf-links a:hover {
+      text-decoration: underline;
+    }
+
+    .concept-section {
+      background-color: #f0f4ff;
+      padding: 25px;
+      border-radius: 8px;
+      margin: 30px 0;
+    }
+
+    .concept-diagram {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .concept-diagram img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .image-caption {
+      font-style: italic;
+      color: #666;
+      text-align: center;
+      margin-top: 8px;
+      font-size: 0.9rem;
+    }
+
+    .code-example {
+      background-color: #2d2d2d;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-family: 'Courier New', monospace;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eee;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .projects-header {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Projets Ingénierie 2024-2025</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="realisations.html">Réalisations</a>
+    <a href="projets.html">Projets</a>
+    <a href="perso.html">Perso</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <div class="projects-header">
+      <a href="projets.html" class="back-button">← Retour aux projets</a>
+      <div class="tech-list">
+        <span class="tech-tag">C</span>
+        <span class="tech-tag">Systèmes Experts</span>
+        <span class="tech-tag">Listes Chaînées</span>
+        <span class="tech-tag">Gestion de Projet</span>
+      </div>
+    </div>
+
+    <div class="project-content">
+      <h2>Projets de Cycle Ingénieur 2024-2025</h2>
+      <p>
+        Durant cette année de formation en cycle ingénieur, j'ai développé deux projets majeurs en langage C qui m'ont permis d'acquérir des compétences en programmation, en conception de systèmes complexes et en gestion de projet.
+      </p>
+
+      <h2>1. Système Expert pour la Résolution d'Enquêtes</h2>
+      
+      <div class="pdf-links">
+        <a href="PDF/Rapport_Detective.pdf" target="_blank">Télécharger le rapport projet Detective</a>
+      </div>
+      
+      <h3>Ce que j'ai appris et réalisé :</h3>
+      <div class="key-points">
+        <h4>Compétences techniques acquises</h4>
+        <ul>
+          <li>Conception et implémentation d'un <strong>système expert complet</strong> avec base de règles et base de faits</li>
+          <li>Développement d'un <strong>moteur d'inférence</strong> avec chaînage avant et chaînage arrière</li>
+          <li>Implémentation de <strong>listes chaînées complexes</strong> pour la gestion des règles et des faits</li>
+          <li>Utilisation avancée de la <strong>récursivité</strong> pour le traitement des règles</li>
+          <li>Gestion de <strong>l'allocation dynamique de mémoire</strong> pour une flexibilité optimale</li>
+          <li>Manipulation de fichiers texte avec respect de la grammaire B.N.F.</li>
+          <li>Programmation en mode non canonique pour une interaction utilisateur fluide</li>
+          <li>Création d'un système de tests unitaires pour validation du code</li>
+        </ul>
+      </div>
+
+      <h3>Fonctionnalités implémentées :</h3>
+      <ul>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Chaînage avant à partir d'une base de faits et de règles</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Chaînage arrière pour vérification d'hypothèses</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Création, modification, affichage et sauvegarde des bases de faits et de règles</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Chargement de bases à partir de fichiers au format spécifié</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Gestion des faits selon l'ordre 0 et 0+ avec raisonnement logique (modus ponens, modus tollens)</li>
+      </ul>
+
+      <h2>2. Application de Gestion de Festival</h2>
+      
+      <div class="pdf-links">
+        <a href="PDF/Rapport_Festival.pdf" target="_blank">Télécharger le rapport projet festival</a>
+      </div>
+      
+      <h3>Ce que j'ai appris et réalisé :</h3>
+      <div class="key-points">
+        <h4>Compétences techniques acquises</h4>
+        <ul>
+          <li>Développement d'une application modulaire en C avec séparation interface/implémentation</li>
+          <li>Gestion de <strong>structures complexes</strong> (artistes, concerts) avec interactions</li>
+          <li>Manipulation de <strong>fichiers binaires</strong> pour la persistance des données</li>
+          <li>Implémentation d'un système de menus interactifs</li>
+          <li>Travail avec des tableaux dynamiques et gestion mémoire</li>
+          <li>Synchronisation de données entre différentes bases</li>
+          <li>Validation des entrées utilisateur et gestion des erreurs</li>
+        </ul>
+      </div>
+
+      <h3>Fonctionnalités implémentées :</h3>
+      <ul>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Gestion complète des artistes (ajout, modification, suppression, affichage)</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Gestion des concerts avec planification par date et heure</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Sauvegarde et chargement des données dans des fichiers binaires</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Interaction entre les bases de données artistes et concerts</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Synchronisation automatique des modifications</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Interface utilisateur intuitive avec menus contextuels</li>
+      </ul>
+
+      <h2>Concepts Techniques Maîtrisés</h2>
+
+      <h3>Listes Chaînées Complexes</h3>
+      <div class="concept-section">
+        <p>
+          Ci dessous la structure de base pour chainer des Listes:
+        </p>
+        <ul>
+        </ul>
+        
+        <div class="code-example">
+          // Exemple de structure de liste chaînée pour les règles<br>
+          typedef struct Condition {<br>
+          &nbsp;&nbsp;int id_fait;<br>
+          &nbsp;&nbsp;struct Condition *suivant;<br>
+          } Condition;<br><br>
+          
+          typedef struct Regle {<br>
+          &nbsp;&nbsp;int id;<br>
+          &nbsp;&nbsp;Condition *premisse;<br>
+          &nbsp;&nbsp;int conclusion;<br>
+          &nbsp;&nbsp;struct Regle *suivant;<br>
+          } Regle;
+        </div>
+
+        <p>
+          Ainsi , il est possible d'obtenir une structure en arbre:
+          
+        </p>
+        <br>
+        <div style="text-align: center;">
+            <img src="images/4-structure sys expert.png" alt="structure sys expert">
+        </div>
+        <p>
+          Cette structure constitue le cœur de ce que l’on appelle un moteur d’inférence.
+Elle est essentielle à la conception d’un système expert, c’est-à-dire un programme spécialisé dans un domaine précis.
+Un tel système repose sur une base de connaissances, alimentée par un expert humain, afin de permettre à l’utilisateur de bénéficier de ce savoir de manière adaptée et pertinente en fonction de son problème spécifique.
+          
+        </p>
+
+        <div style="text-align: center;">
+            <img src="images/4-shema_sys_exp.png" alt="structshemaure sys expert">
+        </div>
+
+
+      </div>
+
+      <h3>Moteurs d'Inférence et Systèmes Experts</h3>
+      <div class="concept-section">
+        <p>
+          J'ai acquis une compréhension des systèmes experts et de leurs composants fondamentaux :
+        </p>
+        
+        <div class="concept-diagram">
+          <div style="text-align: left; margin: 0 auto; max-width: 600px;">
+            <strong>Architecture d'un système expert :</strong><br>
+            1. Base de faits → Informations connues<br>
+            2. Base de règles → Connaissance expert<br>
+            3. Moteur d'inférence → Moteur de raisonnement<br>
+            4. Interface utilisateur → Interaction<br>
+          </div>
+        </div>
+        
+        <h4>Chaînage avant (Forward Chaining)</h4>
+        <p>
+          Le chaînage avant part des faits connus pour déduire de nouvelles conclusions. J'ai implémenté un algorithme qui :
+        </p>
+        <ul>
+          <li>Parcourt toutes les règles pour trouver celles dont les conditions sont satisfaites</li>
+          <li>Ajoute les conclusions aux faits connus</li>
+          <li>Répète le processus jusqu'à ce qu'aucune nouvelle conclusion ne puisse être déduite</li>
+        </ul>
+        
+        <h4>Chaînage arrière (Backward Chaining)</h4>
+        <p>
+          Le chaînage arrière part d'une hypothèse et vérifie si elle peut être prouvée. Mon implémentation :
+        </p>
+        <ul>
+          <li>Prend une hypothèse à vérifier</li>
+          <li>Recherche les règles pouvant prouver cette hypothèse</li>
+          <li>Vérifie récursivement si les conditions de ces règles sont satisfaites</li>
+          <li>Retourne un résultat booléen indiquant si l'hypothèse est vérifiée</li>
+        </ul>
+      </div>
+
+      <h3>Gestion de Projet et Méthodologie</h3>
+      <div class="concept-section">
+        <p>
+          Au-delà des aspects techniques, ces projets m'ont permis de développer des compétences en gestion de projet :<br><br><br>
+        </p>
+        <ul>
+          <li>Création de cahiers de recette pour validation des fonctionnalités</li>
+          <li>Planification avec diagrammes de Gantt</li>
+          <li>Répartition des tâches et coordination d'équipe</li>
+          <li>Tests unitaires et d'intégration</li>
+        </ul>
+      </div>
+
+      <h2>Bilan et Perspectives</h2>
+      <p>
+        Ces deux projets m'ont permis d'acquérir des compétences en développement C, en conception de systèmes complexes et en gestion de projet. J'ai apprécié le défi technique que représentait la création d'un système expert fonctionnel avec ses moteurs d'inférence.
+      </p>
+      
+    
+    <div class="key-points">
+        <h4>Compétences clés développées</h4>
+        <ul>
+            <li>Maîtrise avancée C et de ses concepts complexes</li>
+            <li>Conception et implémentation d'architectures modulaires</li>
+            <li>Gestion de structures de données complexes (listes chaînées, arbres)</li>
+            <li>Développement d'algorithmes de raisonnement logique</li>
+            <li>Gestion de projet agile avec outils modernes </li>
+        </ul>
+    </div>
+</div>
+</main>
+
+  <footer>
+    © 2025 Mon Site. Tous droits réservés… mais en vrai, faites ce que vous voulez, je ne suis pas procédurier.
+  </footer>
+
+</body>
+</html>

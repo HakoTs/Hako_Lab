@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Réalisation N° 3 - Système de Surveillance LeBonCoin Python</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .realisation-block {
+      margin: 40px 0;
+    }
+
+    .image-container {
+      float: right;
+      margin: 0 0 20px 20px;
+      max-width: 400px;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .image-full {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .image-full img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .gif-container {
+      text-align: center;
+      margin: 30px 0;
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .gif-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    .gif-container.small {
+      margin: 20px auto;
+      max-width: 400px;
+      padding: 15px;
+    }
+
+    .gif-container.small img {
+      max-width: 350px;
+      width: 100%;
+    }
+
+    /* Inline small GIF next to text */
+    .gif-inline {
+      float: left;
+      margin: 0 20px 20px 0;
+      background: transparent;
+      padding: 0;
+      /* no frame */
+    }
+
+    .gif-inline.small {
+      max-width: 260px;
+    }
+
+    .gif-inline img {
+      max-width: 100%;
+      height: auto;
+      /* remove rounded corners and shadow to match schema style */
+      border-radius: 0;
+      box-shadow: none;
+      display: block;
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .gallery-item {
+      text-align: center;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
+
+    .progress-section {
+      background-color: #f0f4ff;
+      padding: 25px;
+      border-radius: 8px;
+      margin: 30px 0;
+      border-left: 4px solid #1a237e;
+    }
+
+    .progress-section h3 {
+      color: #1a237e;
+      margin-bottom: 20px;
+    }
+
+    .image-caption {
+      font-style: italic;
+      color: #666;
+      text-align: center;
+      margin-top: 8px;
+      font-size: 0.9rem;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #111;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+      padding: 8px 12px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #444;
+      border-radius: 5px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #1a237e;
+      margin: 30px 0 15px;
+      border-bottom: 2px solid #1a237e;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      color: #1a237e;
+      margin: 25px 0 10px;
+      font-size: 1.1rem;
+    }
+
+    .realisation-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #1a237e;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #303f9f;
+    }
+
+    .realisation-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .tech-tag {
+      background-color: #1a237e;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    .key-points {
+      background-color: #f8f9fa;
+      border-left: 4px solid #1a237e;
+      padding: 15px 20px;
+      margin: 20px 0;
+    }
+
+    .key-points h4 {
+      color: #1a237e;
+      margin-bottom: 10px;
+    }
+
+    .key-points ul {
+      margin-left: 20px;
+    }
+
+    .key-points li {
+      margin-bottom: 5px;
+    }
+
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eee;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .realisation-header {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .image-container {
+        float: none;
+        margin: 20px auto;
+        display: block;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mes Réalisations</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="realisations.html">Réalisations</a>
+    <a href="projets.html">Projets</a>
+    <a href="perso.html">Perso</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <div class="realisation-header">
+      <a href="realisations.html" class="back-button">← Retour aux réalisations</a>
+      <div class="tech-list">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Web Scraping</span>
+        <span class="tech-tag">Architecture Modulaire</span>
+      </div>
+    </div>
+
+    <div class="realisation-content">
+      <h2>Système de Surveillance d'Annonces LeBonCoin</h2>
+      <p>
+        LeBonCoin est le site de petites annonces le plus connu en France, avec des milliers d'annonces publiées chaque jour. 
+        <br>
+        Parmi ces annonces, certains prix sont très intéressants. Mais les lois du marché les font évidemment disparaître rapidement.
+        <br>Si seulement nous avions un moyen d'automatiser la recherche de ces annonces et d'être prévenus dès leur publication, quasiment en temps réel.
+        <br>
+        <br>
+        Le but de ce projet était de créer un système automatisé capable de surveiller en permanence les nouvelles annonces 
+        de smartphones et de me notifier uniquement des vraies bonnes affaires, en filtrant automatiquement les appareils défectueux.
+</p>
+
+      <div class="progress-section">
+        <h3>Overview du Projet</h3>
+        <div class="image-full">
+          <img src="images/3-liste data et script.PNG" alt="Vue d'ensemble du projet">
+          <div class="image-caption">Vue d'ensemble : liste des données et scripts du projet</div>
+        </div>
+        <p>
+          Ce projet a duré plusieurs mois de développement, avec de nombreuses itérations pour optimiser 
+          les performances et la fiabilité. L'architecture finale combine plusieurs modules Python 
+          travaillant ensemble pour automatiser complètement la surveillance.
+        </p>
+      </div>
+
+      <h2>Détails Techniques</h2>
+      <p>
+        Je vais développer quelques aspects techniques intéressants de ce projet.
+      </p>
+      
+      <h3>Récupération des communes et codes postaux</h3>
+      <div class="realisation-block clearfix">
+        <div class="image-container">
+          <img src="images/3-loc_sur_lbc.PNG" alt="Localisation sur LeBonCoin">
+          <div class="image-caption">Récupération du nom de commune et code postal par scraping</div>
+        </div>
+        <p>
+          J'ai dû trouver un moyen de savoir à quelle distance se trouve chaque annonce. 
+          Pour cela, je récupère par scraping le nom de la commune et le code postal 
+          directement depuis la page de l'annonce LeBonCoin.
+        </p>
+        <p>
+          Au début, je voulais faire de la trigonométrie pour obtenir la distance directement 
+          par rapport à ma position, mais j'ai trouvé sur internet une API qui donne 
+          la distance en kilomètres à partir de coordonnées longitude/latitude.
+        </p>
+      </div>
+
+      <h3>Base de Données Géographique</h3>
+      <div class="realisation-block clearfix">
+        <div class="image-container">
+          <img src="images/3-villes_france_site_gouvernement.png" alt="Base de données gouvernementale">
+          <div class="image-caption">Base de données des villes françaises (source gouvernement)</div>
+        </div>
+        <p>
+          J'ai donc pris une base de données .sql qui donne justement les coordonnées 
+          longitude/latitude de toutes les villes françaises. Cette base provient 
+          du site du gouvernement français en libre accès.
+        </p>
+        <p>
+          On va pouvoir exploiter ce fichier SQL pour extraire 
+          et traiter les données. Je l'ai ensuite transformée en fichier .txt pour 
+          pouvoir la traiter plus facilement avec mes scripts Python.
+        </p>
+      </div>
+      
+      <div class="image-gallery">
+        <div class="gallery-item">
+          <img src="images/3-liste_ville_avec_latitude_longitude.gif" alt="Traitement des villes" autoplay loop>
+          <div class="image-caption">Transformation et traitement de la base de données des villes</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/3-database_sql_managment.PNG" alt="Gestion base de données SQL">
+          <div class="image-caption">Manipulation et gestion de la base de données SQL</div>
+        </div>
+      </div>
+
+      <h3>J'obtiens une super fonction !</h3>
+      <div class="image-full">
+        <img src="images/3-code_obrtenir_distance_api.PNG" alt="Fonction de calcul de distance">
+        <div class="image-caption">Fonction finale de calcul de distance géographique</div>
+      </div>
+      
+      <p>
+        Le résultat de tout ce travail est une fonction qui prend en paramètres le code postal 
+        et le nom de la ville, et qui retourne la distance en kilomètres de route par rapport 
+        à ma position. Cette fonction combine toutes les données récupérées (base gouvernementale, 
+        API de distance) pour fournir une information précise et exploitable.
+      </p>
+
+      <h3>Détection des Appareils Défectueux et Web Scraping</h3>
+      <div class="image-full">
+        <img src="images/3-fonctions_hsfinder_et_regex.PNG" alt="Fonctions de détection HS">
+        <div class="image-caption">Fonctions de détection des appareils HS et expressions régulières</div>
+      </div>
+      
+      <div class="key-points">
+        <h4>Le Web Scraping et les Expressions Régulières</h4>
+        <p>
+          Le web scraping consiste à extraire automatiquement des données depuis des pages web. 
+          Dans mon cas, je devais récupérer les informations des annonces LeBonCoin : titre, prix, 
+          description, localisation, etc.
+        </p>
+        <p>
+          <strong>Les expressions régulières (regex)</strong> sont essentielles pour ce projet. Elles permettent de :
+        </p>
+        <ul>
+          <li><strong>Détecter les mots-clés HS</strong> : patterns comme "HS", "cassé", "ne fonctionne plus", "écran fissuré", "pour pièces"</li>
+          <li><strong>Extraire les modèles</strong> : identifier précisément "iPhone 13", "Galaxy S24", etc. dans le titre</li>
+          <li><strong>Valider les prix</strong> : s'assurer que le format prix est cohérent (ex: "250€" ou "250 euros")</li>
+          <li><strong>Parser les descriptions</strong> : rechercher des informations complémentaires cachées dans le texte</li>
+        </ul>
+        <p>
+          Les regex me permettent de créer des patterns très précis pour éviter les faux positifs 
+          et garantir une détection fiable des critères de filtrage.
+        </p>
+      </div>
+
+      <h3>Interface Utilisateur Conviviale</h3>
+      <div class="image-full">
+        <img src="images/3-liste commande_telegram.PNG" alt="Commandes Telegram">
+        <div class="image-caption">Commandes Telegram pour une utilisation user-friendly</div>
+      </div>
+      
+      <p>
+        J'ai aussi ajouté des commandes Telegram pour rendre le système plus user-friendly. 
+        Plutôt que de devoir modifier le code à chaque fois, je peux maintenant :
+      </p>
+      <ul style="margin-left: 20px;">
+        <li>Modifier les prix seuils directement via Telegram</li>
+        <li>Consulter les statistiques en temps réel</li>
+        <li>Redémarrer ou arrêter la surveillance à distance</li>
+        <li>Recevoir des rapports de fonctionnement</li>
+      </ul>
+
+      <h2>Résultat Final</h2>
+      <p>
+        Le système fonctionne parfaitement ! Il surveille automatiquement LeBonCoin 24h/24, 
+        analyse les nouvelles annonces et me notifie uniquement des vraies bonnes affaires. 
+        Fini les heures passées à faire défiler manuellement les annonces !
+      </p>
+      
+      <p>
+        L'architecture modulaire permet d'ajouter facilement de nouveaux critères ou d'adapter 
+        le système à d'autres sites. Ce projet m'a permis d'automatiser complètement une tâche 
+        chronophage tout en développant mes compétences en Python et web scraping.
+      </p>
+
+      <h2>Démonstration</h2>
+      <div class="gif-container">
+        <img src="images/3-liste_resultat_anonces_telegram.gif" alt="Résultats en action" autoplay loop>
+        <div class="image-caption">Le système en action : notifications Telegram des bonnes affaires détectées</div>
+      </div>
+      
+      <p>
+        Voici le système en fonctionnement : dès qu'une bonne affaire est détectée, 
+        je reçois instantanément une notification Telegram avec tous les détails 
+        (prix, modèle, distance, lien direct). Simple et efficace ! 
+        <br>
+        <br>
+        <br>
+        <br>
+        Je posterais les resultats d'achat et le retour sur la rentabilité quand j'aurais un peu plus de datas.
+        <br>
+        <br>
+        <br> 
+        <br>
+        
+      </p>
+
+      
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Mon Site. Tous droits réservés… mais en vrai, faites ce que vous voulez, je ne suis pas procédurier.
+  </footer>
+
+</body>
