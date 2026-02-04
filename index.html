@@ -13,8 +13,9 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: white;
       line-height: 1.6;
     }
 
@@ -23,10 +24,36 @@
       color: white;
       padding: 20px 0;
       text-align: center;
+      position: relative;
+    }
+
+    .language-selector {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .language-selector a {
+      display: block;
+    }
+
+    .language-selector img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+
+    .language-selector img:hover {
+      transform: scale(1.1);
     }
 
     nav {
-      background-color: #222;
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
       display: flex;
       justify-content: center;
       padding: 10px 0;
@@ -38,45 +65,68 @@
       text-decoration: none;
       margin: 0 15px;
       font-size: 16px;
-      padding: 8px 12px;
-      transition: background 0.3s;
+      padding: 8px 16px;
+      transition: all 0.3s;
+      border-radius: 8px;
     }
 
     nav a:hover {
-      background-color: #444;
-      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
     }
 
     main {
       max-width: 900px;
       margin: 40px auto;
-      padding: 0 20px;
+      padding: 40px;
+      background-color: #faf9f6;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
 
     h1 {
       font-size: 2.5rem;
       margin-bottom: 20px;
       text-align: center;
+      color: white;
+    }
+
+    h2 {
+      color: black;
+      margin-top: 30px;
     }
 
     p {
       margin-bottom: 20px;
       font-size: 1.1rem;
-      color: #555;
+      color: #333;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background-color: #eee;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
       margin-top: 40px;
+      color: rgba(255, 255, 255, 0.9);
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Bienvenue sur mon site</h1>
+    <div class="language-selector">
+      <a href="index.html" title="Français">
+        <img src="images/france.png" alt="Français">
+      </a>
+      <a href="index-en.html" title="English">
+        <img src="images/royaume-uni.png" alt="English">
+      </a>
+      <a href="coming-soon.html" title="Deutsch">
+        <img src="images/allemagne.png" alt="Deutsch">
+      </a>
+    </div>
+    <h1>Accueil</h1>
   </header>
 
   <nav>
@@ -88,10 +138,16 @@
   </nav>
 
   <main>
-    <h2>Page d’accueil</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in lacus in nisl congue fringilla non a neque. Donec ac mauris vitae eros fermentum sagittis.</p>
+    <h2>Bienvenue</h2>
+    <p><br><br>
+Ce lieu rassemble différents projets d’Engineering, développés au fil du temps.<br>
+Les idées, les conceptions et parfois même les expérimentations y sont partagées, qu’elles soient abouties ou en cours.<br><br>
 
-    <p>Praesent vel facilisis mauris. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+Ce site se veut à la fois une vitrine professionnelle, présentant les compétences techniques et les réalisations concrètes, et un espace d’échange plus personnel, offrant un aperçu de la démarche, des apprentissages et de la passion qui animent ces projets.<br><br>
+
+L’objectif est de partager une approche authentique de l’ingénierie et de permettre à chacun de découvrir plus en détail les travaux présentés.</p>
+
+   <br> <p></p>
   </main>
 
   <footer>

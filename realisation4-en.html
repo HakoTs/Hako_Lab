@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engineering Projects 2024-2025 - Expert Systems and Festival Management</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #111;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .language-selector {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .language-selector a {
+      display: block;
+    }
+
+    .language-selector img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+
+    .language-selector img:hover {
+      transform: scale(1.1);
+    }
+
+    nav {
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+      padding: 8px 16px;
+      transition: all 0.3s;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 40px;
+      background-color: #faf9f6;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      color: #333;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h2 {
+      color: black;
+      margin: 30px 0 15px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      color: #222;
+      margin: 25px 0 10px;
+      font-size: 1.1rem;
+    }
+
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #667eea;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      border: 2px solid #667eea;
+    }
+
+    .back-button:hover {
+      background-color: #303f9f;
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .tech-tag {
+      background-color: #667eea;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    .project-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    .key-points {
+      background-color: #f8f9fa;
+      border-left: 4px solid #1a237e;
+      padding: 15px 20px;
+      margin: 20px 0;
+    }
+
+    .key-points h4 {
+      color: #1a237e;
+      margin-bottom: 10px;
+    }
+
+    .key-points ul {
+      margin-left: 20px;
+    }
+
+    .key-points li {
+      margin-bottom: 5px;
+    }
+
+    .pdf-links {
+      margin: 20px 0;
+      padding: 15px;
+      background-color: #e8f4f8;
+      border-radius: 8px;
+    }
+
+    .pdf-links a {
+      display: block;
+      margin: 10px 0;
+      color: #1a237e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .pdf-links a:hover {
+      text-decoration: underline;
+    }
+
+    .concept-section {
+      background-color: #f0f4ff;
+      padding: 25px;
+      border-radius: 8px;
+      margin: 30px 0;
+    }
+
+    .concept-diagram {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .concept-diagram img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .image-caption {
+      font-style: italic;
+      color: #666;
+      text-align: center;
+      margin-top: 8px;
+      font-size: 0.9rem;
+    }
+
+    .code-example {
+      background-color: #2d2d2d;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-family: 'Courier New', monospace;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      margin-top: 40px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    @media (max-width: 768px) {
+      .projects-header {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Engineering Projects 2024-2025</h1>
+  </header>
+
+  <nav>
+    <a href="index-en.html">Home</a>
+    <a href="realisations-en.html">Achievements</a>
+    <a href="projets-en.html">Projects</a>
+    <a href="perso-en.html">Personal</a>
+    <a href="contact-en.html">Contact</a>
+  </nav>
+
+  <main>
+    <div class="projects-header">
+      <a href="projets-en.html" class="back-button">← Back to projects</a>
+      <div class="tech-list">
+        <span class="tech-tag">C</span>
+        <span class="tech-tag">Expert Systems</span>
+        <span class="tech-tag">Linked Lists</span>
+        <span class="tech-tag">Project Management</span>
+      </div>
+    </div>
+
+    <div class="project-content">
+      <h2>Engineering Cycle Projects 2024-2025</h2>
+      <p>
+        During this year of training in the engineering cycle, I developed two major projects in C language that allowed me to acquire skills in programming, complex system design and project management.
+      </p>
+
+      <h2>1. Expert System for Investigation Resolution</h2>
+      
+      <div class="pdf-links">
+        <a href="PDF/Rapport_Detective.pdf" target="_blank">Download Detective project report</a>
+      </div>
+      
+      <h3>What I learned and accomplished:</h3>
+      <div class="key-points">
+        <h4>Technical skills acquired</h4>
+        <ul>
+          <li>Design and implementation of a <strong>complete expert system</strong> with rule base and fact base</li>
+          <li>Development of an <strong>inference engine</strong> with forward and backward chaining</li>
+          <li>Implementation of <strong>complex linked lists</strong> for managing rules and facts</li>
+          <li>Advanced use of <strong>recursion</strong> for rule processing</li>
+          <li>Management of <strong>dynamic memory allocation</strong> for optimal flexibility</li>
+          <li>Manipulation of text files with respect to B.N.F. grammar</li>
+          <li>Programming in non-canonical mode for fluid user interaction</li>
+          <li>Creation of a unit test system for code validation</li>
+        </ul>
+      </div>
+
+      <h3>Implemented features:</h3>
+      <ul>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Forward chaining from a fact base and rules</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Backward chaining for hypothesis verification</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Creation, modification, display and saving of fact and rule bases</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Loading bases from files in specified format</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Management of facts according to order 0 and 0+ with logical reasoning (modus ponens, modus tollens)</li>
+      </ul>
+
+      <h2>2. Festival Management Application</h2>
+      
+      <div class="pdf-links">
+        <a href="PDF/Rapport_Festival.pdf" target="_blank">Download Festival project report</a>
+      </div>
+      
+      <h3>What I learned and accomplished:</h3>
+      <div class="key-points">
+        <h4>Technical skills acquired</h4>
+        <ul>
+          <li>Development of a modular C application with interface/implementation separation</li>
+          <li>Management of <strong>complex structures</strong> (artists, concerts) with interactions</li>
+          <li>Manipulation of <strong>binary files</strong> for data persistence</li>
+          <li>Implementation of an interactive menu system</li>
+          <li>Working with dynamic arrays and memory management</li>
+          <li>Data synchronization between different databases</li>
+          <li>User input validation and error handling</li>
+        </ul>
+      </div>
+
+      <h3>Implemented features:</h3>
+      <ul>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Complete artist management (add, modify, delete, display)</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Concert management with planning by date and time</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Saving and loading data in binary files</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Interaction between artist and concert databases</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Automatic synchronization of modifications</li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;Intuitive user interface with contextual menus</li>
+      </ul>
+
+      <h2>Technical Concepts Mastered</h2>
+
+      <h3>Complex Linked Lists</h3>
+      <div class="concept-section">
+        <p>
+          Below is the basic structure for chaining Lists:
+        </p>
+        <ul>
+        </ul>
+        
+        <div class="code-example">
+          // Example of linked list structure for rules<br>
+          typedef struct Condition {<br>
+          &nbsp;&nbsp;int id_fait;<br>
+          &nbsp;&nbsp;struct Condition *suivant;<br>
+          } Condition;<br><br>
+          
+          typedef struct Regle {<br>
+          &nbsp;&nbsp;int id;<br>
+          &nbsp;&nbsp;Condition *premisse;<br>
+          &nbsp;&nbsp;int conclusion;<br>
+          &nbsp;&nbsp;struct Regle *suivant;<br>
+          } Regle;
+        </div>
+
+        <p>
+          Thus, it is possible to obtain a tree structure:
+          
+        </p>
+        <br>
+        <div style="text-align: center;">
+            <img src="images/4-structure sys expert.png" alt="expert system structure">
+        </div>
+        <p>
+          This structure constitutes the core of what is called an inference engine.
+It is essential to the design of an expert system, that is to say a program specialized in a specific domain.
+Such a system relies on a knowledge base, fed by a human expert, to allow the user to benefit from this knowledge in an adapted and relevant manner according to their specific problem.
+          
+        </p>
+
+        <div style="text-align: center;">
+            <img src="images/4-shema_sys_exp.png" alt="expert system diagram">
+        </div>
+
+
+      </div>
+
+      <h3>Inference Engines and Expert Systems</h3>
+      <div class="concept-section">
+        <p>
+          I acquired an understanding of expert systems and their fundamental components:
+        </p>
+        
+        <div class="concept-diagram">
+          <div style="text-align: left; margin: 0 auto; max-width: 600px;">
+            <strong>Expert system architecture:</strong><br>
+            1. Fact base → Known information<br>
+            2. Rule base → Expert knowledge<br>
+            3. Inference engine → Reasoning engine<br>
+            4. User interface → Interaction<br>
+          </div>
+        </div>
+        
+        <h4>Forward Chaining</h4>
+        <p>
+          Forward chaining starts from known facts to deduce new conclusions. I implemented an algorithm that:
+        </p>
+        <ul>
+          <li>Goes through all the rules to find those whose conditions are satisfied</li>
+          <li>Adds conclusions to known facts</li>
+          <li>Repeats the process until no new conclusion can be deduced</li>
+        </ul>
+        
+        <h4>Backward Chaining</h4>
+        <p>
+          Backward chaining starts from a hypothesis and checks if it can be proven. My implementation:
+        </p>
+        <ul>
+          <li>Takes a hypothesis to verify</li>
+          <li>Searches for rules that can prove this hypothesis</li>
+          <li>Recursively checks if the conditions of these rules are satisfied</li>
+          <li>Returns a boolean result indicating whether the hypothesis is verified</li>
+        </ul>
+      </div>
+
+      <h3>Project Management and Methodology</h3>
+      <div class="concept-section">
+        <p>
+          Beyond technical aspects, these projects allowed me to develop project management skills:<br><br><br>
+        </p>
+        <ul>
+          <li>Creation of test specifications for feature validation</li>
+          <li>Planning with Gantt charts</li>
+          <li>Task distribution and team coordination</li>
+          <li>Unit and integration testing</li>
+        </ul>
+      </div>
+
+      <h2>Summary and Perspectives</h2>
+      <p>
+        These two projects allowed me to acquire skills in C development, complex system design and project management. I appreciated the technical challenge of creating a functional expert system with its inference engines.
+      </p>
+      
+    
+    <div class="key-points">
+        <h4>Key skills developed</h4>
+        <ul>
+            <li>Advanced mastery of C and its complex concepts</li>
+            <li>Design and implementation of modular architectures</li>
+            <li>Management of complex data structures (linked lists, trees)</li>
+            <li>Development of logical reasoning algorithms</li>
+            <li>Agile project management with modern tools</li>
+        </ul>
+    </div>
+</div>
+</main>
+
+  <footer>
+    © 2025 My Website. All rights reserved… but honestly, do what you want, I'm not litigious.
+  </footer>
+
+</body>
+</html>

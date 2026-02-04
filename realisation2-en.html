@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Réalisation N° 2 - Distributeur de Cacahuètes Arduino</title>
+  <title>Achievement #2 - Arduino Peanut Dispenser</title>
   <style>
     * {
       margin: 0;
@@ -67,13 +67,11 @@
       width: 100%;
     }
 
-    /* Inline small GIF next to text */
     .gif-inline {
       float: left;
       margin: 0 20px 20px 0;
       background: transparent;
       padding: 0;
-      /* no frame */
     }
 
     .gif-inline.small {
@@ -83,7 +81,6 @@
     .gif-inline img {
       max-width: 100%;
       height: auto;
-      /* remove rounded corners and shadow to match schema style */
       border-radius: 0;
       box-shadow: none;
       display: block;
@@ -338,154 +335,155 @@
         <img src="images/allemagne.png" alt="Deutsch">
       </a>
     </div>
-    <h1>Mes Réalisations</h1>
+    <h1>My Achievements</h1>
   </header>
 
   <nav>
-    <a href="index.html">Accueil</a>
-    <a href="realisations.html">Réalisations</a>
-    <a href="projets.html">Projets</a>
-    <a href="perso.html">Perso</a>
-    <a href="contact.html">Contact</a>
+    <a href="index-en.html">Home</a>
+    <a href="realisations-en.html">Achievements</a>
+    <a href="projets-en.html">Projects</a>
+    <a href="perso-en.html">Personal</a>
+    <a href="contact-en.html">Contact</a>
   </nav>
 
   <main>
     <div class="realisation-header">
-      <a href="realisations.html" class="back-button">← Retour aux réalisations</a>
+      <a href="realisations-en.html" class="back-button">← Back to achievements</a>
       <div class="tech-list">
-        <span class="tech-tag">Pédagogie</span>
+        <span class="tech-tag">Education</span>
         <span class="tech-tag">Arduino</span>
         <span class="tech-tag">C++</span>
-        <span class="tech-tag">Électronique</span>
-        <span class="tech-tag">Mécanique</span>
+        <span class="tech-tag">Electronics</span>
+        <span class="tech-tag">Mechanics</span>
       </div>
     </div>
 
     <div class="realisation-content">
-      <h2>Distributeur de Cacahuètes Automatique</h2>
+      <h2>Automatic Peanut Dispenser</h2>
       <p>
-        Projet réalisé avec mon petit frère : un distributeur de cacahuètes entièrement automatique basé sur Arduino Mega. 
-        Ce système détecte l'insertion d'une pièce grâce à un capteur optique et distribue automatiquement une cacahuète 
-        via un mécanisme à double servomoteur.
+        Project made with my little brother: a fully automatic peanut dispenser based on Arduino Mega. 
+        This system detects coin insertion using an optical sensor and automatically distributes one peanut 
+        via a dual servo motor mechanism.
       </p>
 
       <div class="progress-section">
-        <h3>Évolution du projet</h3>
+        <h3>Project Evolution</h3>
         <div class="image-gallery">
           <div class="gallery-item">
-            <img src="images/cacauetes_begining.PNG" alt="Début du projet">
-            <div class="image-caption">Phase initiale : premiers tests et prototypage</div>
+            <img src="images/cacauetes_begining.PNG" alt="Project beginning">
+            <div class="image-caption">Initial phase: first tests and prototyping</div>
           </div>
           <div class="gallery-item">
-            <img src="images/cacauetes_half_done.PNG" alt="Projet à mi-parcours">
-            <div class="image-caption">Développement : assemblage des composants</div>
+            <img src="images/cacauetes_half_done.PNG" alt="Project mid-way">
+            <div class="image-caption">Development: component assembly</div>
           </div>
         </div>
       </div>
 
-      <h2>Principe de Fonctionnement</h2>
+      <h2>Working Principle</h2>
       
-      <h3>Détection de la Pièce</h3>
+      <h3>Coin Detection</h3>
       <div class="realisation-block clearfix">
         <div class="image-container">
-          <img src="images/cacauetes_schema eclairage_photoresistance_explication.png" alt="Système de détection lumineuse">
-          <div class="image-caption">Schéma explicatif : LED + photorésistance pour la détection</div>
+          <img src="images/cacauetes_schema eclairage_photoresistance_explication.png" alt="Light detection system">
+          <div class="image-caption">Explanatory diagram: LED + photoresistor for detection</div>
         </div>
         <p>
-          Le cœur du système de détection repose sur un principe simple mais efficace : 
-          une LED émet un faisceau lumineux constant vers une photorésistance. 
+          The heart of the detection system relies on a simple but effective principle: 
+          an LED emits a constant light beam towards a photoresistor.
         </p>
         <p>
-          Quand une pièce passe entre les deux, elle coupe le faisceau, ce qui fait chuter 
-          la luminosité reçue par la photorésistance. L'Arduino détecte cette variation 
-          et déclenche le processus de distribution.
+          When a coin passes between the two, it cuts the beam, which drops 
+          the brightness received by the photoresistor. The Arduino detects this variation 
+          and triggers the dispensing process.
         </p>
         <p>
-          Le rail guide parfaitement la pièce pour qu'elle coupe bien le faisceau lumineux.
+          The rail perfectly guides the coin so it properly cuts the light beam.
         </p>
       </div>
 
-      <h3>Mécanisme de Distribution</h3>
+      <h3>Distribution Mechanism</h3>
       <div class="realisation-block clearfix">
         <div class="gif-inline small">
-          <img src="images/cacauetes_explications_distribution_dans_tube.gif" alt="Animation du mécanisme de distribution" autoplay loop>
+          <img src="images/cacauetes_explications_distribution_dans_tube.gif" alt="Distribution mechanism animation" autoplay loop>
         </div>
         <p style="text-align: center;">
-          Une fois la pièce détectée, le vrai challenge commence : distribuer exactement une cacahuète, 
-          pas plus, pas moins. Pour cela, j'ai conçu un système à double porte :
+          Once the coin is detected, the real challenge begins: dispensing exactly one peanut, 
+          no more, no less. For this, I designed a dual-door system:
           <br>
           <br>
           <br>
         </p>
         <ol style="margin-left: 20px;">
-          <li>Servomoteur 1 s'ouvre → les cacahuètes descendent</li>
-          <li>Une cacahuète tombe dans la chambre intermédiaire</li>
-          <li>Servomoteur 1 se referme (bloque les autres cacahuètes)</li>
-          <li>Servomoteur 2 s'ouvre → la cacahuète tombe</li>
-          <li>Servomoteur 2 se referme → retour à l'état initial</li>
+          <li>Servomotor 1 opens → peanuts descend</li>
+          <li>One peanut falls into the intermediate chamber</li>
+          <li>Servomotor 1 closes (blocks other peanuts)</li>
+          <li>Servomotor 2 opens → the peanut falls</li>
+          <li>Servomotor 2 closes → return to initial state</li>
         </ol>
         <p style="text-align: center;">
           <br>
-          Cette séquence en deux temps évite que plusieurs cacahuètes tombent d'un coup. En théorie... 
-          En pratique, il arrive parfois que deux cacahuètes se faufilent, mais ça fait partie du charme artisanal du projet !
+          This two-step sequence prevents multiple peanuts from falling at once. In theory... 
+          In practice, sometimes two peanuts sneak through, but that's part of the project's handmade charm!
         </p>
       </div>
 
-      <h2>Composants Utilisés</h2>
+      <h2>Components Used</h2>
       <div class="key-points">
-        <h4>Liste du matériel</h4>
+        <h4>Hardware list</h4>
         <ul>
-          <li><strong>Arduino Mega</strong> : cerveau du système, gère tous les capteurs et actionneurs</li>
-          <li><strong>2 Servomoteurs</strong> : contrôlent l'ouverture/fermeture des portes de distribution</li>
-          <li><strong>1 LED</strong> : source lumineuse pour la détection</li>
-          <li><strong>1 Photorésistance</strong> : capteur de lumière pour détecter l'obstruction</li>
-          <li><strong>Afficheur LCD 2 lignes</strong> : retour visuel sur l'état du système</li>
-          <li><strong>Structure mécanique</strong> : tube, rails, supports (bricolage maison !)</li>
+          <li><strong>Arduino Mega</strong>: system brain, manages all sensors and actuators</li>
+          <li><strong>2 Servomotors</strong>: control opening/closing of distribution doors</li>
+          <li><strong>1 LED</strong>: light source for detection</li>
+          <li><strong>1 Photoresistor</strong>: light sensor to detect obstruction</li>
+          <li><strong>2-line LCD display</strong>: visual feedback on system status</li>
+          <li><strong>Mechanical structure</strong>: tube, rails, supports (homemade!)</li>
         </ul>
       </div>
 
-      <h2>Défis et Solutions</h2>
+      <h2>Challenges and Solutions</h2>
       <div class="key-points">
-        <h4>Points clés du développement</h4>
+        <h4>Key development points</h4>
         <ul>
-          <li><strong>Calibrage de la photorésistance</strong> : trouver le bon seuil de détection selon l'éclairage ambiant</li>
-          <li><strong>Timing des servomoteurs</strong> : synchroniser parfaitement l'ouverture/fermeture pour éviter les bourrages</li>
-          <li><strong>Mécanique artisanale</strong> : ajuster les dimensions du rail et du tube pour un fonctionnement fluide</li>
-          <li><strong>Gestion des cas d'erreur</strong> : que faire si une cacahuète se coince ?</li>
-          <li><strong>Interface utilisateur</strong> : affichage clair sur l'écran LCD ("Insérez pièce", "Distribution...", etc.)</li>
+          <li><strong>Photoresistor calibration</strong>: finding the right detection threshold according to ambient lighting</li>
+          <li><strong>Servomotor timing</strong>: perfectly synchronizing opening/closing to avoid jams</li>
+          <li><strong>Handmade mechanics</strong>: adjusting rail and tube dimensions for smooth operation</li>
+          <li><strong>Error handling</strong>: what to do if a peanut gets stuck?</li>
+          <li><strong>User interface</strong>: clear display on LCD screen ("Insert coin", "Dispensing...", etc.)</li>
         </ul>
       </div>
 
-      <h2>Résultat Final</h2>
+      <h2>Final Result</h2>
       <div class="gif-container">
-        <img src="images/cacauetes_demonstration.gif" alt="Démonstration du distributeur en fonctionnement" autoplay loop>
-        <div class="image-caption">Le système en action : de la pièce à la cacahuète !</div>
+        <img src="images/cacauetes_demonstration.gif" alt="Dispenser demonstration in action" autoplay loop>
+        <div class="image-caption">The system in action: from coin to peanut!</div>
       </div>
       
       <p>
-        Le distributeur fonctionne comme prévu ! On glisse une pièce, le système la détecte, et hop, une cacahuète tombe. Parfois deux, mais c’est un bonus inattendu. 😉<br> <br> code était assez facile ; le vrai objectif était surtout pédagogique et ludique. J’ai initié mon petit frère à la programmation en lui montrant que le code, ce n’est pas sorcier : comment un simple capteur détecte une pièce, comment un moteur sait quand tourner, et comment le tout travaille ensemble. On a parlé de logique, de signaux, et de la magie (en réalité très concrète) qui fait passer une idée à quelque chose de tangible. <br> <br> Résultat : il a maintenant son propre distributeur de cacahuètes… et il sait comment il marche de l’intérieur.
+        The dispenser works as expected! You insert a coin, the system detects it, and boom, a peanut falls. Sometimes two, but that's an unexpected bonus. 😉<br><br>The code was fairly easy; the real goal was mainly educational and fun. I introduced my little brother to programming by showing him that code isn't magic: how a simple sensor detects a coin, how a motor knows when to turn, and how everything works together. We talked about logic, signals, and the magic (actually very concrete) that transforms an idea into something tangible.<br><br>Result: he now has his own peanut dispenser... and he knows how it works from the inside.
       </p>
       <p>
-        Collaboration avec mon petit frère oblige, on a aussi appris à se répartir les tâches : lui sur la partie mécanique et bricolage, 
-        moi sur la programmation et l'électronique. Un vrai travail d'équipe !
+        Collaboration with my little brother required us to divide tasks: him on mechanics and crafting, 
+        me on programming and electronics. Real teamwork!
       </p>
 
-      <h2>Améliorations Possibles</h2>
+      <h2>Possible Improvements</h2>
       <p>
-        Quelques idées pour une version 2.0 :
+        Some ideas for version 2.0:
       </p>
       <ul style="margin-left: 20px;">
-        <li>Ajouter un capteur de niveau pour savoir quand le tube est vide</li>
-        <li>Intégrer un système de différanciation de pieces</li>
-        <li>Améliorer la mécanique pour garantir une seule cacahuète à chaque fois.</li>
-        <li>Ajouter une connexion WiFi pour un drop de cacahuète a distance.</li>
+        <li>Add a level sensor to know when the tube is empty</li>
+        <li>Integrate a coin differentiation system</li>
+        <li>Improve mechanics to guarantee a single peanut each time</li>
+        <li>Add WiFi connection for remote peanut drop</li>
       </ul>
       
     </div>
   </main>
 
   <footer>
-    © 2025 Mon Site. Tous droits réservés… mais en vrai, faites ce que vous voulez, je ne suis pas procédurier.
+    © 2025 My Website. All rights reserved… but honestly, do what you want, I'm not litigious.
   </footer>
 
 </body>
+</html>

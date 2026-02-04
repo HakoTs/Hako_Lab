@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Réalisation N° 3 - Système de Surveillance LeBonCoin Python</title>
+  <title>Achievement N° 3 - LeBonCoin Monitoring System Python</title>
   <style>
     * {
       margin: 0;
@@ -340,191 +340,191 @@
         <img src="images/allemagne.png" alt="Deutsch">
       </a>
     </div>
-    <h1>Mes Réalisations</h1>
+    <h1>My Achievements</h1>
   </header>
 
   <nav>
-    <a href="index.html">Accueil</a>
-    <a href="realisations.html">Réalisations</a>
-    <a href="projets.html">Projets</a>
-    <a href="perso.html">Perso</a>
-    <a href="contact.html">Contact</a>
+    <a href="index-en.html">Home</a>
+    <a href="realisations-en.html">Achievements</a>
+    <a href="projets-en.html">Projects</a>
+    <a href="perso-en.html">Personal</a>
+    <a href="contact-en.html">Contact</a>
   </nav>
 
   <main>
     <div class="realisation-header">
-      <a href="realisations.html" class="back-button">← Retour aux réalisations</a>
+      <a href="realisations-en.html" class="back-button">← Back to achievements</a>
       <div class="tech-list">
         <span class="tech-tag">Python</span>
         <span class="tech-tag">Web Scraping</span>
-        <span class="tech-tag">Architecture Modulaire</span>
+        <span class="tech-tag">Modular Architecture</span>
       </div>
     </div>
 
     <div class="realisation-content">
-      <h2>Système de Surveillance d'Annonces LeBonCoin</h2>
+      <h2>LeBonCoin Ad Monitoring System</h2>
       <p>
-        LeBonCoin est le site de petites annonces le plus connu en France, avec des milliers d'annonces publiées chaque jour. 
+        LeBonCoin is the most popular classified ads website in France, with thousands of ads posted every day. 
         <br>
-        Parmi ces annonces, certains prix sont très intéressants. Mais les lois du marché les font évidemment disparaître rapidement.
-        <br>Si seulement nous avions un moyen d'automatiser la recherche de ces annonces et d'être prévenus dès leur publication, quasiment en temps réel.
+        Among these ads, some prices are very attractive. But market laws obviously make them disappear quickly.
+        <br>If only we had a way to automate the search for these ads and be notified as soon as they are published, almost in real-time.
         <br>
         <br>
-        Le but de ce projet était de créer un système automatisé capable de surveiller en permanence les nouvelles annonces 
-        de smartphones et de me notifier uniquement des vraies bonnes affaires, en filtrant automatiquement les appareils défectueux.
-</p>
+        The goal of this project was to create an automated system capable of continuously monitoring new smartphone ads 
+        and notifying me only of real good deals, by automatically filtering out defective devices.
+      </p>
 
       <div class="progress-section">
-        <h3>Overview du Projet</h3>
+        <h3>Project Overview</h3>
         <div class="image-full">
-          <img src="images/3-liste data et script.PNG" alt="Vue d'ensemble du projet">
-          <div class="image-caption">Vue d'ensemble : liste des données et scripts du projet</div>
+          <img src="images/3-liste data et script.PNG" alt="Project overview">
+          <div class="image-caption">Overview: data list and project scripts</div>
         </div>
         <p>
-          Ce projet a duré plusieurs mois de développement, avec de nombreuses itérations pour optimiser 
-          les performances et la fiabilité. L'architecture finale combine plusieurs modules Python 
-          travaillant ensemble pour automatiser complètement la surveillance.
+          This project took several months of development, with many iterations to optimize 
+          performance and reliability. The final architecture combines several Python modules 
+          working together to fully automate monitoring.
         </p>
       </div>
 
-      <h2>Détails Techniques</h2>
+      <h2>Technical Details</h2>
       <p>
-        Je vais développer quelques aspects techniques intéressants de ce projet.
+        I will elaborate on some interesting technical aspects of this project.
       </p>
       
-      <h3>Récupération des communes et codes postaux</h3>
+      <h3>Retrieving Cities and Postal Codes</h3>
       <div class="realisation-block clearfix">
         <div class="image-container">
-          <img src="images/3-loc_sur_lbc.PNG" alt="Localisation sur LeBonCoin">
-          <div class="image-caption">Récupération du nom de commune et code postal par scraping</div>
+          <img src="images/3-loc_sur_lbc.PNG" alt="Location on LeBonCoin">
+          <div class="image-caption">Retrieving city name and postal code by scraping</div>
         </div>
         <p>
-          J'ai dû trouver un moyen de savoir à quelle distance se trouve chaque annonce. 
-          Pour cela, je récupère par scraping le nom de la commune et le code postal 
-          directement depuis la page de l'annonce LeBonCoin.
+          I had to find a way to know the distance of each ad. 
+          To do this, I retrieve by scraping the city name and postal code 
+          directly from the LeBonCoin ad page.
         </p>
         <p>
-          Au début, je voulais faire de la trigonométrie pour obtenir la distance directement 
-          par rapport à ma position, mais j'ai trouvé sur internet une API qui donne 
-          la distance en kilomètres à partir de coordonnées longitude/latitude.
+          At first, I wanted to use trigonometry to get the distance directly 
+          from my position, but I found an API on the internet that gives 
+          the distance in kilometers from longitude/latitude coordinates.
         </p>
       </div>
 
-      <h3>Base de Données Géographique</h3>
+      <h3>Geographic Database</h3>
       <div class="realisation-block clearfix">
         <div class="image-container">
-          <img src="images/3-villes_france_site_gouvernement.png" alt="Base de données gouvernementale">
-          <div class="image-caption">Base de données des villes françaises (source gouvernement)</div>
+          <img src="images/3-villes_france_site_gouvernement.png" alt="Government database">
+          <div class="image-caption">French cities database (government source)</div>
         </div>
         <p>
-          J'ai donc pris une base de données .sql qui donne justement les coordonnées 
-          longitude/latitude de toutes les villes françaises. Cette base provient 
-          du site du gouvernement français en libre accès.
+          So I took a .sql database that gives precisely the longitude/latitude coordinates 
+          of all French cities. This database comes from 
+          the French government website in open access.
         </p>
         <p>
-          On va pouvoir exploiter ce fichier SQL pour extraire 
-          et traiter les données. Je l'ai ensuite transformée en fichier .txt pour 
-          pouvoir la traiter plus facilement avec mes scripts Python.
+          We can exploit this SQL file to extract 
+          and process the data. I then transformed it into a .txt file to 
+          be able to process it more easily with my Python scripts.
         </p>
       </div>
       
       <div class="image-gallery">
         <div class="gallery-item">
-          <img src="images/3-liste_ville_avec_latitude_longitude.gif" alt="Traitement des villes" autoplay loop>
-          <div class="image-caption">Transformation et traitement de la base de données des villes</div>
+          <img src="images/3-liste_ville_avec_latitude_longitude.gif" alt="City processing" autoplay loop>
+          <div class="image-caption">Transformation and processing of the cities database</div>
         </div>
         <div class="gallery-item">
-          <img src="images/3-database_sql_managment.PNG" alt="Gestion base de données SQL">
-          <div class="image-caption">Manipulation et gestion de la base de données SQL</div>
+          <img src="images/3-database_sql_managment.PNG" alt="SQL database management">
+          <div class="image-caption">SQL database manipulation and management</div>
         </div>
       </div>
 
-      <h3>J'obtiens une super fonction !</h3>
+      <h3>I Get a Great Function!</h3>
       <div class="image-full">
-        <img src="images/3-code_obrtenir_distance_api.PNG" alt="Fonction de calcul de distance">
-        <div class="image-caption">Fonction finale de calcul de distance géographique</div>
+        <img src="images/3-code_obrtenir_distance_api.PNG" alt="Distance calculation function">
+        <div class="image-caption">Final geographic distance calculation function</div>
       </div>
       
       <p>
-        Le résultat de tout ce travail est une fonction qui prend en paramètres le code postal 
-        et le nom de la ville, et qui retourne la distance en kilomètres de route par rapport 
-        à ma position. Cette fonction combine toutes les données récupérées (base gouvernementale, 
-        API de distance) pour fournir une information précise et exploitable.
+        The result of all this work is a function that takes the postal code 
+        and city name as parameters, and returns the road distance in kilometers from 
+        my position. This function combines all the retrieved data (government database, 
+        distance API) to provide accurate and usable information.
       </p>
 
-      <h3>Détection des Appareils Défectueux et Web Scraping</h3>
+      <h3>Defective Device Detection and Web Scraping</h3>
       <div class="image-full">
-        <img src="images/3-fonctions_hsfinder_et_regex.PNG" alt="Fonctions de détection HS">
-        <div class="image-caption">Fonctions de détection des appareils HS et expressions régulières</div>
+        <img src="images/3-fonctions_hsfinder_et_regex.PNG" alt="Defective device detection functions">
+        <div class="image-caption">Defective device detection functions and regular expressions</div>
       </div>
       
       <div class="key-points">
-        <h4>Le Web Scraping et les Expressions Régulières</h4>
+        <h4>Web Scraping and Regular Expressions</h4>
         <p>
-          Le web scraping consiste à extraire automatiquement des données depuis des pages web. 
-          Dans mon cas, je devais récupérer les informations des annonces LeBonCoin : titre, prix, 
-          description, localisation, etc.
+          Web scraping consists of automatically extracting data from web pages. 
+          In my case, I had to retrieve LeBonCoin ad information: title, price, 
+          description, location, etc.
         </p>
         <p>
-          <strong>Les expressions régulières (regex)</strong> sont essentielles pour ce projet. Elles permettent de :
+          <strong>Regular expressions (regex)</strong> are essential for this project. They allow to:
         </p>
         <ul>
-          <li><strong>Détecter les mots-clés HS</strong> : patterns comme "HS", "cassé", "ne fonctionne plus", "écran fissuré", "pour pièces"</li>
-          <li><strong>Extraire les modèles</strong> : identifier précisément "iPhone 13", "Galaxy S24", etc. dans le titre</li>
-          <li><strong>Valider les prix</strong> : s'assurer que le format prix est cohérent (ex: "250€" ou "250 euros")</li>
-          <li><strong>Parser les descriptions</strong> : rechercher des informations complémentaires cachées dans le texte</li>
+          <li><strong>Detect defective keywords</strong>: patterns like "broken", "cracked", "not working", "cracked screen", "for parts"</li>
+          <li><strong>Extract models</strong>: precisely identify "iPhone 13", "Galaxy S24", etc. in the title</li>
+          <li><strong>Validate prices</strong>: ensure the price format is consistent (e.g., "250€" or "250 euros")</li>
+          <li><strong>Parse descriptions</strong>: search for additional information hidden in the text</li>
         </ul>
         <p>
-          Les regex me permettent de créer des patterns très précis pour éviter les faux positifs 
-          et garantir une détection fiable des critères de filtrage.
+          Regex allows me to create very precise patterns to avoid false positives 
+          and ensure reliable detection of filtering criteria.
         </p>
       </div>
 
-      <h3>Interface Utilisateur Conviviale</h3>
+      <h3>User-Friendly Interface</h3>
       <div class="image-full">
-        <img src="images/3-liste commande_telegram.PNG" alt="Commandes Telegram">
-        <div class="image-caption">Commandes Telegram pour une utilisation user-friendly</div>
+        <img src="images/3-liste commande_telegram.PNG" alt="Telegram commands">
+        <div class="image-caption">Telegram commands for user-friendly use</div>
       </div>
       
       <p>
-        J'ai aussi ajouté des commandes Telegram pour rendre le système plus user-friendly. 
-        Plutôt que de devoir modifier le code à chaque fois, je peux maintenant :
+        I also added Telegram commands to make the system more user-friendly. 
+        Rather than having to modify the code each time, I can now:
       </p>
       <ul style="margin-left: 20px;">
-        <li>Modifier les prix seuils directement via Telegram</li>
-        <li>Consulter les statistiques en temps réel</li>
-        <li>Redémarrer ou arrêter la surveillance à distance</li>
-        <li>Recevoir des rapports de fonctionnement</li>
+        <li>Modify price thresholds directly via Telegram</li>
+        <li>Consult real-time statistics</li>
+        <li>Restart or stop monitoring remotely</li>
+        <li>Receive operational reports</li>
       </ul>
 
-      <h2>Résultat Final</h2>
+      <h2>Final Result</h2>
       <p>
-        Le système fonctionne parfaitement ! Il surveille automatiquement LeBonCoin 24h/24, 
-        analyse les nouvelles annonces et me notifie uniquement des vraies bonnes affaires. 
-        Fini les heures passées à faire défiler manuellement les annonces !
+        The system works perfectly! It automatically monitors LeBonCoin 24/7, 
+        analyzes new ads and only notifies me of real good deals. 
+        No more hours spent manually scrolling through ads!
       </p>
       
       <p>
-        L'architecture modulaire permet d'ajouter facilement de nouveaux critères ou d'adapter 
-        le système à d'autres sites. Ce projet m'a permis d'automatiser complètement une tâche 
-        chronophage tout en développant mes compétences en Python et web scraping.
+        The modular architecture makes it easy to add new criteria or adapt 
+        the system to other sites. This project allowed me to completely automate a 
+        time-consuming task while developing my skills in Python and web scraping.
       </p>
 
-      <h2>Démonstration</h2>
+      <h2>Demonstration</h2>
       <div class="gif-container">
-        <img src="images/3-liste_resultat_anonces_telegram.gif" alt="Résultats en action" autoplay loop>
-        <div class="image-caption">Le système en action : notifications Telegram des bonnes affaires détectées</div>
+        <img src="images/3-liste_resultat_anonces_telegram.gif" alt="Results in action" autoplay loop>
+        <div class="image-caption">The system in action: Telegram notifications of detected good deals</div>
       </div>
       
       <p>
-        Voici le système en fonctionnement : dès qu'une bonne affaire est détectée, 
-        je reçois instantanément une notification Telegram avec tous les détails 
-        (prix, modèle, distance, lien direct). Simple et efficace ! 
+        Here is the system in operation: as soon as a good deal is detected, 
+        I instantly receive a Telegram notification with all the details 
+        (price, model, distance, direct link). Simple and effective! 
         <br>
         <br>
         <br>
         <br>
-        Je posterais les resultats d'achat et le retour sur la rentabilité quand j'aurais un peu plus de datas.
+        I will post purchase results and return on profitability when I have a bit more data.
         <br>
         <br>
         <br> 
@@ -537,7 +537,8 @@
   </main>
 
   <footer>
-    © 2025 Mon Site. Tous droits réservés… mais en vrai, faites ce que vous voulez, je ne suis pas procédurier.
+    © 2025 My Website. All rights reserved… but honestly, do what you want, I'm not litigious.
   </footer>
 
 </body>
+</html>

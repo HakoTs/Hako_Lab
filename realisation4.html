@@ -13,8 +13,9 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: white;
       line-height: 1.6;
     }
 
@@ -23,10 +24,36 @@
       color: white;
       padding: 20px 0;
       text-align: center;
+      position: relative;
+    }
+
+    .language-selector {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .language-selector a {
+      display: block;
+    }
+
+    .language-selector img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+
+    .language-selector img:hover {
+      transform: scale(1.1);
     }
 
     nav {
-      background-color: #222;
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
       display: flex;
       justify-content: center;
       padding: 10px 0;
@@ -38,36 +65,40 @@
       text-decoration: none;
       margin: 0 15px;
       font-size: 16px;
-      padding: 8px 12px;
-      transition: background 0.3s;
+      padding: 8px 16px;
+      transition: all 0.3s;
+      border-radius: 8px;
     }
 
     nav a:hover {
-      background-color: #444;
-      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
     }
 
     main {
       max-width: 1000px;
       margin: 40px auto;
-      padding: 0 20px;
-    }
+      padding: 40px;
+      background-color: #faf9f6;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);      color: #333;    }
 
     h1 {
       font-size: 2.2rem;
       margin-bottom: 20px;
       text-align: center;
+      color: white;
     }
 
     h2 {
-      color: #1a237e;
+      color: black;
       margin: 30px 0 15px;
-      border-bottom: 2px solid #1a237e;
+      border-bottom: 2px solid #ddd;
       padding-bottom: 5px;
     }
 
     h3 {
-      color: #1a237e;
+      color: #222;
       margin: 25px 0 10px;
       font-size: 1.1rem;
     }
@@ -82,12 +113,13 @@
     .back-button {
       display: inline-block;
       padding: 8px 16px;
-      background-color: #1a237e;
+      background-color: #667eea;
       color: white;
       text-decoration: none;
-      border-radius: 4px;
+      border-radius: 8px;
       font-size: 0.9rem;
-      transition: background-color 0.3s;
+      transition: all 0.3s;
+      border: 2px solid #667eea;
     }
 
     .back-button:hover {
@@ -102,7 +134,7 @@
     }
 
     .tech-tag {
-      background-color: #1a237e;
+      background-color: #667eea;
       color: white;
       padding: 5px 10px;
       border-radius: 20px;
@@ -195,8 +227,10 @@
     footer {
       text-align: center;
       padding: 20px;
-      background-color: #eee;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
       margin-top: 40px;
+      color: rgba(255, 255, 255, 0.9);
     }
 
     @media (max-width: 768px) {
